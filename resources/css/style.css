@@ -1,25 +1,6 @@
 /* ==========================================================================
-   1. CSS RESET & VARIABLES
+   1. RESET & VARIABLES
    ========================================================================== */
-:root {
-  /* Bảng màu chính */
-  --bg-color: #000000;
-  --text-color: #ffffff;
-  --text-muted: #a0a0a0;
-  --accent-color: #10b981;
-  --accent-hover: #059669;
-
-  /* Font chữ & Kích thước */
-  --font-main: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-  --font-heading: 'Segoe UI', system-ui, sans-serif;
-
-  /* Khoảng cách */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-}
-
 *,
 *::before,
 *::after {
@@ -28,8 +9,16 @@
   padding: 0;
 }
 
+:root {
+  --font-family: Verdana, Geneva, Tahoma, sans-serif;
+  --bg-color: #000000;
+  --text-white: #ffffff;
+  --text-gray: gray;
+  --color-accent: aquamarine;
+}
+
 /* ==========================================================================
-   2. BASE & TYPOGRAPHY
+   2. BASE STYLES & LAYOUT
    ========================================================================== */
 html {
   scroll-behavior: smooth;
@@ -37,114 +26,149 @@ html {
 
 body {
   background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-main);
-  line-height: 1.6;
+  color: var(--text-white);
+  font-family: var(--font-family);
   text-align: center;
+  line-height: 1.4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.2;
+/* ==========================================================================
+   3. TYPOGRAPHY & HEADINGS
+   ========================================================================== */
+/* Hero Heading: Verdana, Normal, 50px, White, Centered */
+.hero-title {
+  font-family: var(--font-family);
+  font-size: 50px;
+  font-weight: normal;
+  color: var(--text-white);
+  margin-top: 35px;
+  margin-bottom: 20px;
+  padding: 0 16px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-md);
+/* Section Headings: Verdana, 300 / normal, 42px, White */
+.section-title {
+  font-family: var(--font-family);
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--text-white);
+  margin-top: 30px;
+  margin-bottom: 20px;
+  padding: 0 16px;
 }
 
-h2 {
-  font-size: 1.875rem;
-  margin-bottom: var(--spacing-sm);
+/* Description paragraph: Verdana, 21px, Gray */
+.feature-description {
+  font-family: var(--font-family);
+  font-size: 21px;
+  color: var(--text-gray);
+  max-width: 800px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
 }
 
-p {
-  color: var(--text-muted);
-  margin-bottom: var(--spacing-md);
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--accent-hover);
+/* Links: Aquamarine, 16px */
+.link-app {
+  color: var(--color-accent);
+  font-size: 16px;
   text-decoration: underline;
-}
-
-/* ==========================================================================
-   3. LAYOUT & CONTAINERS
-   ========================================================================== */
-.container {
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-header {
-  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
-}
-
-main {
-  flex: 1;
-  padding: var(--spacing-lg) var(--spacing-md);
-}
-
-footer {
-  padding: var(--spacing-lg) var(--spacing-md);
-  color: var(--text-muted);
-  font-size: 0.875rem;
-}
-
-/* ==========================================================================
-   4. COMPONENTS & MEDIA
-   ========================================================================== */
-/* Nút bấm (Buttons) */
-.btn {
+  transition: opacity 0.2s ease;
   display: inline-block;
-  background-color: var(--accent-color);
-  color: #ffffff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  cursor: pointer;
-  border: none;
 }
 
-.btn:hover {
-  background-color: var(--accent-hover);
-  text-decoration: none;
-  transform: translateY(-1px);
+.link-app:hover {
+  opacity: 0.8;
 }
 
-/* Hình ảnh & Video */
-img,
+/* ==========================================================================
+   4. MEDIA & SECTIONS
+   ========================================================================== */
+header {
+  margin-bottom: 40px;
+}
+
+.video-container {
+  margin: 35px auto 0;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
 video {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: var(--spacing-md) auto;
-  border-radius: 8px;
+}
+
+.feature-guide {
+  margin-bottom: 50px;
+}
+
+.image-container {
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.img-landscape {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.feature-coming-soon {
+  margin-bottom: 50px;
+}
+
+.icon-wrapper {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.icon-phone {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-width: 50px;
 }
 
 /* ==========================================================================
-   5. RESPONSIVE MEDIA QUERIES
+   5. FOOTER
    ========================================================================== */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3.5rem;
+footer {
+  margin-top: auto;
+  padding: 30px 40px;
+  text-align: right;
+}
+
+.copyright {
+  color: var(--text-gray);
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 32px;
+    margin-top: 25px;
   }
 
-  h2 {
-    font-size: 2.25rem;
+  .section-title {
+    font-size: 28px;
+    margin-top: 25px;
+  }
+
+  .feature-description {
+    font-size: 18px;
+  }
+
+  footer {
+    padding: 20px 24px;
   }
 }
